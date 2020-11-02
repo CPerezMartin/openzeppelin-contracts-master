@@ -41,6 +41,9 @@ build/
 # IntelliJ IDE
 .idea
 
+# VCode IDE
+.history/
+
 # docs artifacts
 docs/modules/api
 
