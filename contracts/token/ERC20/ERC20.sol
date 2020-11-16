@@ -118,6 +118,18 @@ contract ERC20 is Context, IERC20 {
     }
 
     /**
+     *
+     * Requirements:
+     *
+     * - `recipient` cannot be the zero address.
+     * - the caller must have a balance of at least `amount`.
+     */
+    function hold(address recipient, uint256 amount, uint256 holdId) public virtual override returns (bool) {
+        _hold(_msgSender(), recipient, amount);
+        return true;
+    }
+
+    /**
      * @dev See {IERC20-allowance}.
      */
     function allowance(address owner, address spender) public view virtual override returns (uint256) {
@@ -214,6 +226,29 @@ contract ERC20 is Context, IERC20 {
         _balances[sender] = _balances[sender].sub(amount, "ERC20: transfer amount exceeds balance");
         _balances[recipient] = _balances[recipient].add(amount);
         emit Transfer(sender, recipient, amount);
+    }
+
+    /**
+     * This is internal function is equivalent to {transfer}, and can be used to
+     * e.g. implement automatic token fees, slashing mechanisms, etc.
+     *
+     * Emits a {Transfer} event.
+     *
+     * Requirements:
+     *
+     * - `sender` cannot be the zero address.
+     * - `recipient` cannot be the zero address.
+     * - `sender` must have a balance of at least `amount`.
+     */
+    function _hold(address sender, address recipient, uint256 amount, uint HoldId) internal virtual {
+        require(sender != address(0), "ERC20: transfer from the zero address");
+        require(recipient != address(0), "ERC20: transfer to the zero address");
+
+        _beforeTokenTransfer(sender, recipient, amount);
+
+        _balances[sender] = _balances[sender].sub(amount, "ERC20: transfer amount exceeds balance");
+        _balances[recipient] = _balances[recipient].add(amount);
+        emit Hold(sender, recipient, amount, holdId);
     }
 
     /** @dev Creates `amount` tokens and assigns them to `account`, increasing

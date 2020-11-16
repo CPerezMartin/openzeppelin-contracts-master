@@ -26,6 +26,15 @@ interface IERC20 {
     function transfer(address recipient, uint256 amount) external returns (bool);
 
     /**
+     * @dev Moves `amount` tokens from the caller's account to his `hold`.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function hold(address recipient, uint256 amount, uint256 holdId) external returns (bool);
+
+    /**
      * @dev Returns the remaining number of tokens that `spender` will be
      * allowed to spend on behalf of `owner` through {transferFrom}. This is
      * zero by default.
@@ -60,6 +69,17 @@ interface IERC20 {
      * Emits a {Transfer} event.
      */
     function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+
+    /**
+     * @dev Moves `amount` tokens from `sender` to his `hold` using the
+     * allowance mechanism. `amount` is then deducted from the caller's
+     * allowance.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function holdFrom(address sender, address recipient, uint256 amount) external returns (bool);
 
     /**
      * @dev Emitted when `value` tokens are moved from one account (`from`) to

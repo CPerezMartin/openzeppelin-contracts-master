@@ -1,0 +1,62 @@
+[
+  {
+  "name": "Nombre01",
+  "wallets": [
+     {
+      "address": "address01",
+      "balance": 0,
+      "allowance": 0,
+      "holds": [
+        {
+          "id": "id01",
+          "recipient":"address02",
+          "amount": 0
+        }
+      ]
+
+    }]
+  },
+  {
+  "name": "Nombre02",
+  "wallets": [
+     {
+      "address": "address02",
+      "balance": 0,
+      "allowance": 0,
+      "holds": [
+        {
+          "id": "id02",
+          "recipient":"address02",
+          "amount": 0
+        }
+      ]
+    },
+    {
+      "address": "address03",
+      "balance": 0,
+      "allowance": 0,
+      "holds": [  ]
+    }]
+  },
+  {
+  "name": "Nombre03",
+  "wallets": [
+     {
+      "address": "address01",
+      "balance": 0,
+      "allowance": 0,
+      "holds": [
+        {
+          "id": "id02",
+          "recipient":"address02",
+          "amount": 0
+        },
+        {
+          "id":"id04",
+          "recipient":"address02",
+          "amount":5
+        }
+      ]
+    }]
+  }
+]

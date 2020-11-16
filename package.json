@@ -25,7 +25,8 @@
     "prepack": "scripts/prepack.sh",
     "release": "scripts/release/release.sh",
     "version": "scripts/release/version.sh",
-    "test": "buidler test"
+    "test": "buidler test",
+    "start": "npx http-server -p 3000 -c-1 'http://localhost:3000'"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,10 @@
   },
   "homepage": "https://openzeppelin.com/contracts/",
   "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
     "@nomiclabs/buidler": "^1.4.8",
     "@nomiclabs/buidler-truffle5": "^1.3.4",
     "@nomiclabs/buidler-web3": "^1.3.4",
@@ -53,7 +58,9 @@
     "@openzeppelin/gsn-helpers": "^0.2.3",
     "@openzeppelin/gsn-provider": "^0.1.10",
     "@openzeppelin/test-helpers": "^0.5.9",
+    "babel-loader": "^8.0.2",
     "chai": "^4.2.0",
+    "css-loader": "^1.0.0",
     "eslint": "^6.5.1",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.0",
@@ -70,7 +77,14 @@
     "rimraf": "^3.0.2",
     "solhint": "^3.2.0",
     "solidity-coverage": "^0.7.11",
-    "solidity-docgen": "^0.5.3"
+    "solidity-docgen": "^0.5.3",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.8"
   },
-  "dependencies": {}
+  "dependencies": {
+    "http-server": "^0.12.3",
+    "react-hot-loader": "^4.13.0"
+  }
 }
